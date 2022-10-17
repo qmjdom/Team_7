@@ -1,8 +1,15 @@
 {% block content %}
-    <center>
-        <h1>Syllabus Form</h1>
-{{ details_list }}
-    </center>
+
+    <h1>List of Syllabus</h1>
+    {% for details in details_list %}
+    <ul>
+        <li>Course Code: {{ details.c_code }}</li>
+        <li>Course Name: {{ details.name }}</li>
+        <li>Credits: {{ details.credits }}</li>
+
+    </ul>
+    {% endfor %}
+
 
 
 {% endblock %}
