@@ -5,3 +5,6 @@ def show_syllabus(request):
     details_list = Course.objects.all()
     return render(request, 'syllabus.html', 
     {'details_list' : details_list})
+
+def home_page(request):
+    return render(request, 'homepage.html')
