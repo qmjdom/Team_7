@@ -24,8 +24,8 @@ class Signature(models.Model):
 class Course(models.Model):
     c_code = models.CharField('Course Code', max_length=20)
     name = models.CharField('Course Name', max_length=50)
-    credits = models.CharField('Credits', max_length=50)
-    contact_hours = models.CharField('Contact Hours', max_length=50)
+    credits = models.PositiveIntegerField('Credit Units')
+    contact_hours = models.PositiveIntegerField('Contact Hours')
     instructor = models.ManyToManyField(Instructor, blank=True)
     textbook = models.CharField('Textbooks', max_length=100)
     course_description = models.TextField()
