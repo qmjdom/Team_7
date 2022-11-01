@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .models import Course
 from .forms import CourseForm
@@ -16,6 +16,21 @@ def add_syllabus(request):
             submitted = True
 
     return render(request, 'add_syllabus.html', {'form':form, 'submitted':submitted})
+
+def delete_syllabus(request, syllabus_id):
+    syllabus = Course.objects.get(pk=syllabus_id)
+    syllabus.delete()
+    return redirect('list-syllabus')
+
+def update_syllabus(request, syllabus_id):
+    syllabus = Course.objects.get(pk=syllabus_id)
+    form = CourseForm(request.POST or None, instance=syllabus)
+    if form.is_valid():
+        form.save()
+        return redirect('list-syllabus')
+
+    return render(request, 'update_syllabus.html', 
+    {'syllabus':syllabus, 'form':form})
 
 def search_syllabus(request):
     if request.method == "POST":
