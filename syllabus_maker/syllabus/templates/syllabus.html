@@ -6,9 +6,9 @@
     <h1>List of Syllabus</h1>
     {% for details in details_list %}
       <div class="card">
-        <a href="{% url 'show-syllabus' syllabus.id %}"></a>
+        <a href="{% url 'show-syllabus' details.id %}">
           <div class="card-header">
-            <strong>{{ details.c_code }}</strong>
+            <strong>{{ details.c_code }}</strong></a>
           </div>
           <div class="card-body">
             <h6 class="card-title">

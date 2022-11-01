@@ -17,6 +17,15 @@ def add_syllabus(request):
 
     return render(request, 'add_syllabus.html', {'form':form, 'submitted':submitted})
 
+def search_syllabus(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+
+        return render(request, 'search_syllabus.html', {'searched':searched})
+
+    else:
+        return render(request, 'search_syllabus.html', {})
+
 def list_syllabus(request):
     details_list = Course.objects.all()
     return render(request, 'syllabus.html', 
