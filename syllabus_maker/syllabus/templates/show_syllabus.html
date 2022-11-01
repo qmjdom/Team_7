@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <h1>{{ syllabus.c_code }} Syllabus</h1>
+
+    <div class="card">
+        <div class="card-header">
+          <strong>{{ syllabus.c_code }}</strong>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">
+            Course Name: {{ syllabus.name }}<br/>
+            Credits: {{ syllabus.credits }} Units<br/> 
+          </h6>
+          <p class="card-text">
+            <strong>Course Description:</strong> </br>{{ syllabus.course_description }}
+          </p>
+        </div>
+      </div>
+
+
+
+
+{% endblock %}
