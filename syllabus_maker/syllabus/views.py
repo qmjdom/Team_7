@@ -20,8 +20,9 @@ def add_syllabus(request):
 def search_syllabus(request):
     if request.method == "POST":
         searched = request.POST['searched']
+        syllabus = Course.objects.filter(name__contains=searched)
 
-        return render(request, 'search_syllabus.html', {'searched':searched})
+        return render(request, 'search_syllabus.html', {'searched':searched, 'syllabus':syllabus})
 
     else:
         return render(request, 'search_syllabus.html', {})
