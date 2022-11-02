@@ -9,4 +9,5 @@ urlpatterns = [
     path('search_syllabus', views.search_syllabus, name='search-syllabus'),
     path('update_syllabus/<syllabus_id>', views.update_syllabus, name='update-syllabus'),
     path('delete_syllabus/<syllabus_id>', views.delete_syllabus, name='delete-syllabus'),
+    path('course_pdf/<syllabus_id>', views.course_pdf, name='course-pdf'),
 ]
