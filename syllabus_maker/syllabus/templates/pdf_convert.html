@@ -101,6 +101,38 @@
               <th><h2>c. Course Classification (Required/elective/selected/elective</h2></th>
               <td>Required</td>
             </tr>
+            <tr>
+              <th colspan="2"><h2>SPECIFIC GOALS FOR THE COURSE</h2></th>
+            </tr>
+            <tr>
+              <th colspan="2"><h2>a. Course Objective</h2></th>
+            </tr>
+            <tr>
+              <td colspan="2">
+              {{ course.course_objective }}
+              </td>
+              <tr>
+                <th colspan="2"><h2>b. Course Outcomes</h2></th>
+              </tr>
+              <tr>
+                <td colspan="2">
+                {{ course.ILO }}
+                </td>
+                <tr>
+                  <th colspan="2"><h2>c. Student Outcomes Addressed by the Course</h2></th>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                  {{ course.s_outcomes }}
+                  </td>
+                  <tr>
+                    <th colspan="2"><h2>COURSE TOPICS</h2></th>
+                  </tr>
+                  <td colspan="2">
+                    {{ course.prelim }}<br/>
+                    {{ course.midterm }}<br/>
+                    {{ course.finals }}
+                  </td>
           </tbody>
       </table>
     </div>
