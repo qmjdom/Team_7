@@ -6,7 +6,7 @@
         <h1>You Searched For {{ searched }}</h1>
         <br/>
         {% for syllabus in syllabus %}
-            <a href="{% url 'show-syllabus' syllabus.id %}">{{ syllabus.name }}</a><br/>
+            <a href="{% url 'show-syllabus' syllabus.id %}">{{ syllabus.c_code }} {{ syllabus.name }}</a><br/>
         {% endfor %}
 
     {% else %}
