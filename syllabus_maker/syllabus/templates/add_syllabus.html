@@ -2,7 +2,7 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-    <center>
+
         <h1>Create a Syllabus</h1>
         <br/><br/>
         {%  if submitted %}
@@ -10,16 +10,14 @@
 
         {% else %}
 
-            <form action="" method="POST">
-                {% csrf_token %}
-
-                {{ form.as_p }}
-
-                <input type="submit" value="Submit" class="btn btn-secondary">
-
-            </form>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
         {% endif %}
-    </center>
+
 
 
 

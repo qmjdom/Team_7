@@ -1,4 +1,6 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+from django.db.models import Model
 
 # Tables
 
@@ -34,11 +36,11 @@ class Course(models.Model):
     co_req = models.CharField('Co-requisites', max_length=100)
     course_classification = models.CharField('Course Classification', max_length=50)
     course_objective = models.TextField()
-    ILO = models.TextField()
-    s_outcomes = models.TextField()
-    prelim = models.TextField()
-    midterm = models.TextField()
-    finals = models.TextField()
+    ILO = RichTextField(blank=True, null=True)
+    s_outcomes = RichTextField(blank=True, null=True)
+    prelim = RichTextField(blank=True, null=True)
+    midterm = RichTextField(blank=True, null=True)
+    finals = RichTextField(blank=True, null=True)
     signatories = models.ForeignKey(Signature, blank=True, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
