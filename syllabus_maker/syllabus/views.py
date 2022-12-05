@@ -1,10 +1,17 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Course
 from .forms import CourseForm
 from xhtml2pdf import pisa
 from django.template.loader import get_template
 from django.db.models import Q
+
+@login_required(login_url='/members/login_user')
+def list_syllabus(request):
+    details_list = Course.objects.all()
+    return render(request, 'syllabus.html', 
+    {'details_list' : details_list})
 
 def add_syllabus(request):
     submitted = False
@@ -45,18 +52,10 @@ def search_syllabus(request):
     else:
         return render(request, 'search_syllabus.html', {})
 
-def list_syllabus(request):
-    details_list = Course.objects.all()
-    return render(request, 'syllabus.html', 
-    {'details_list' : details_list})
-
 def show_syllabus(request, syllabus_id):
     syllabus = Course.objects.get(pk=syllabus_id)
     return render(request, 'show_syllabus.html', 
     {'syllabus' : syllabus})
-
-def home_page(request):
-    return render(request, 'homepage.html')
 
 #   Generate PDF File Syllabus Summary
 def course_pdf(request, syllabus_id):
