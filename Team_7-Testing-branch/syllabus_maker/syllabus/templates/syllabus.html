@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{%load static%}
+<head>
+<link rel='stylesheet' type='text/css' media='screen' href='{%static  'css/styles.css'%}'>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-black bg-blue">
+  <main class="row">
+    <div class="container-fluid">
+      <div class="fw-bold fs-2">
+          <a class="nav-link px-3 active" href="{% url 'add-syllabus' %}"><i class="bi bi-journal-plus"></i>CREATE NEW</a>
+      </div>
+        <div class="card text-bg-light mb-3" style="width: 18rem;">
+          <a class="card-header bg-primary text-light" href="{% url 'add-syllabus' %}"><strong>New Syllabus</strong></a>
+          <div class="card-body">
+            <div class="card-title"><center><strong><h1>+</h1></strong></center></div>
+          </div>
+        </div>
+        <div class="column fw-bold fs-2">
+           <a class="nav-link px-3 active"><i class="bi bi-speedometer2"></i>DASHBOARD</a>
+        </div>
+        </div>
+        </div>
+
+{% for details in details_list %}
+
+<div class="card gy-3 my-3 mb-3">
+  <a href="{% url 'show-syllabus' details.id %}">
+    <div class="card-header text-light bg-dark">
+      <strong class="text-light">{{ details.c_code }}</strong></a>
+    </div>
+    <div class="card-body">
+      <h6 class="card-title">
+        <strong>Course Name: </strong>{{ details.name }}<br/>
+        <strong>Credits: </strong>{{ details.credits }} Units<br/> 
+      </h6>
+      <p class="card-text">
+        <strong>Course Description:</strong> </br>{{ details.course_description }}
+      </p>
+    </div>
+  </div>
+
+</main>
+</nav>
+
+<body style="background-image: url('{%static  'img/lime.png'%}');">
+</body>
+
+
+  {% endfor %}
+
+
+{% endblock %}
+

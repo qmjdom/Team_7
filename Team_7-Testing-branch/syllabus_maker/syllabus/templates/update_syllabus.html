@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{%load static%}
+<head>
+<link rel='stylesheet' type='text/css' media='screen' href='{%static  'css/styles.css'%}'>
+</head>
+
+<center>
+        <h1>Update Syllabus</h1>
+        <br/>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br/>
+            <div class="col-lg-4">
+            <button type="submit" value="Update" class="btn1" >Update</button>
+            </div>
+        <br/>
+        </center>
+
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            .btn1{
+                border: none;
+                outline: none;
+                height: 40px;
+                width: 100%;
+                background-color: black;
+                color: white;
+                border-radius: 4px;
+                font-weight: bold;
+            }
+        </style>
+
+        <body style="background-image: url('{%static  'img/book.jpg'%}');">
+        </body>
+
+{% endblock %}
